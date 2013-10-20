@@ -84,7 +84,7 @@
   tags: gitlab
 
 - name: gitlab | Write db config
-  template: src=database.yml.j2 dest=$gitlabDir/config/database.yml owner=$gitlabUser group=$gitlabUser
+  template: src=$databaseType.database.yml.j2 dest=$gitlabDir/config/database.yml owner=$gitlabUser group=$gitlabUser
   tags: gitlab
 
 - name: gitlab | Install gems

@@ -1,0 +1,34 @@
+---
+# need LC_ALL="en_GB.utf8" 
+- name: Install Mysql
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=900
+  with_items:
+    - mysql-server
+    - mysql-client
+    - python-mysqldb
+    - libmysqlclient-dev
+  tags: 
+    - mysql
+    - database
+
+- name: Start PostgreSQL
+  service: name=mysql state=started
+  tags: 
+    - mysql
+    - database
+
+- name: gitlab | Create DB
+  mysql_db: name=gitlabhq_production state=present collation=utf8_unicode_ci encoding=utf8 owner=$gitlabUser
+  sudo: yes
+  sudo_user: mysql
+  tags: 
+    - mysql
+    - database
+
+- name: Create user
+  mysql_user: state=present name=$gitlabUser password=$db_password host=localhost priv=gitlabhq_production.*:ALL
+  sudo: yes
+  sudo_user: mysql
+  tags: 
+    - mysql
+    - database
