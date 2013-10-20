@@ -21,8 +21,7 @@
     - libicu-dev
     - python
     - openssl
-    - libpq-dev 
-    - build-essential
+
   tags: gitlab
 
 - name: Install Bundler
@@ -94,7 +93,7 @@
   tags: gitlab
 
 - name: gitlab | Run bundler
-  command: bundle install --deployment --without development test mysql aws chdir=$gitlabDir
+  command: bundle install --deployment --without development test aws chdir=$gitlabDir
   sudo: yes
   sudo_user: $gitlabUser
   tags: gitlab
