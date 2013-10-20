@@ -17,6 +17,12 @@
     - mysql
     - database
 
+- name: gitlab | Install gems
+  gem: name=mysql2 version=0.3.13 state=present
+  tags: 
+    - mysql
+    - database
+
 - name: gitlab | Create DB
   mysql_db: name=gitlabhq_production state=present collation=utf8_unicode_ci encoding=utf8 
   sudo: yes

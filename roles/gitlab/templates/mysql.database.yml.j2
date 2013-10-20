@@ -2,48 +2,48 @@
 # PRODUCTION
 #
 production:
-  adapter: mysql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: gitlabhq_production
   pool: 10
   username: $gitlabUser
   password: $db_password
   # host: localhost
   # port: 5432 
-  # socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
 #
 # Development specific
 #
 development:
-  adapter: mysql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: gitlabhq_development
   pool: 5
-  username: postgres
+  username: mysql
   password:
-  # socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
 #
 # Staging specific
 #
 staging:
-  adapter: mysql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: gitlabhq_staging
   pool: 5
-  username: postgres
+  username: mysql
   password:
-  # socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-  adapter: mysql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: gitlabhq_test
   pool: 5
   username: mysql
   password:
-  # socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
