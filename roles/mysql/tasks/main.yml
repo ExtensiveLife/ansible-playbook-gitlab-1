@@ -11,14 +11,14 @@
     - mysql
     - database
 
-- name: Start PostgreSQL
+- name: Start MySql
   service: name=mysql state=started
   tags: 
     - mysql
     - database
 
 - name: gitlab | Create DB
-  mysql_db: name=gitlabhq_production state=present collation=utf8_unicode_ci encoding=utf8 owner=$gitlabUser
+  mysql_db: name=gitlabhq_production state=present collation=utf8_unicode_ci encoding=utf8 
   sudo: yes
   sudo_user: mysql
   tags: 

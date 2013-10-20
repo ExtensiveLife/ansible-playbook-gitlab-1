@@ -1,4 +1,4 @@
 ---
-gitlabFQDN: 127.0.0.1
+gitlabFQDN: ci.health-e-living.com 
 gitlabUser: git
 databaseType: mysql
