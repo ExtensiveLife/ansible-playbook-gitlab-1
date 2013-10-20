@@ -21,6 +21,8 @@
     - libicu-dev
     - python
     - openssl
+    - libpq-dev 
+    - build-essential
   tags: gitlab
 
 - name: Install Bundler
